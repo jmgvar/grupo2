@@ -9,8 +9,11 @@ import { User } from '../../../models/user';
 export class LoginComponent implements OnInit {
 
   u: User;
-  
-  constructor() { }
+  title = 'Hola';
+
+  constructor() { 
+    this.u = new User();
+  }
 
   ngOnInit(): void {
   }
