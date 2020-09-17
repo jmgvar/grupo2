@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { User } from '../../../models/user';
 import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,9 @@ export class LoginComponent implements OnInit {
 
   u: User;
   title = 'Hola';
+  error = '';
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private router: Router) { 
     this.u = new User();
   }
 
@@ -22,12 +24,17 @@ export class LoginComponent implements OnInit {
   login() {
     console.log(this.u.email);
     console.log(this.u.password);
+    var redirigir = false;
     this.http.post("https://reqres.in/api/login", this.u).subscribe( data => {
-      console.log(data);
-    });
+        this.router.navigate(['/home']);
+      },
+      error => {
+        this.error = 'Usuario no encontrado';
+      }
+    );
   }
 
   register() {
-    
+    this.router.navigate(['/register']);
   }
 }
