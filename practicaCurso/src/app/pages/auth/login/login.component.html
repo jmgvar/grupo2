@@ -1,6 +1,8 @@
 <p>login works!</p>
 
-{{ title }}
 
 <input type="text" [(ngModel)] = "u.email" placeholder="email"/>
 <input type="text" [(ngModel)] = "u.password" placeholder="password"/>
+
+<button (click)="login()">login</button>
+<button (click)="register()">registrar</button>
