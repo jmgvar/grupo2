@@ -10,7 +10,7 @@ import { ResourcesListComponent } from './pages/resources/resources-list/resourc
 import { ResourcesDetailComponent } from './pages/resources/resources-detail/resources-detail.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
